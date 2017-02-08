@@ -7,7 +7,7 @@ Based on [yftzeng's work](https://github.com/yftzeng/pHash-0.9.6-patches) for tw
 1. Compatible with new PHP version (Compile/Install passed).
 2. Change `ph_dct_imagehash()` function to return hash string for further operation.
 
-And in addition, I added two patches for ffmpeg 2.3+ compatibility, which is also for the [ruby binding](https://github.com/toy/pHash) compatibility 
+And in addition, I added two patches for ffmpeg 2.3+ compatibility, which is also for the [ruby binding](https://github.com/toy/pHash) compatibility
 
 1. Add init NULL value for pFormatCtx (Fixed Video hash)
 2. extern "C" for all functions in audiophash.h (Fixed Audio hash)
@@ -27,6 +27,13 @@ $ sudo apt-get install cimg-dev libavcodec-dev ffmpeg libswscale-dev
 $ cd pHash-0.9.6
 $ ./configure
 $ make && sudo make install
+```
+
+```sh
+$ ./configure --enable-video-hash=no --enable-audio-hash=no LDFLAGS='-lpthread'
+$ make
+$ sudo make install
+$ sudo gem install pHash
 ```
 
 #### 2. Ruby binding
